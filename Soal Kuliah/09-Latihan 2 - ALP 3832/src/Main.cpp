@@ -32,24 +32,32 @@ int main () {
 
     cout << "\nJumlah data = " << jumlah_data << endl;
 
-    cout << "\n----------------------------------------\n" << endl;
+    cout << "\n----------------------------------------" << endl;
 
     // Pengelolaan lanjutan 
 
     double mean;
-    double sigma;
+    double sigma = 0, tampung; //tampung, buat menampung data sementara
 
     mean = jumlah_data / n;
 
-    for (int i = 0; i < n; i++) {
-        sigma = pow ((data[i] - mean), 2);
+    // Melakukan fungsi sigma 
+
+    for (int s = 0; s < n; s++) {
+    
+        tampung = pow ((data[s] - mean), 2);
+        sigma = sigma + tampung;
+    
     }
 
-    double variance;
-    double deviasi;
+    double variance, deviasi;
 
-    variance = sigma * 1/n;
+    // Memasukan rumus 
+
+    variance = sigma / n;
     deviasi = sqrt (variance);
+
+    // Menampilkan nilai semuanya 
 
     cout << "\nMean = " << mean << endl;
     cout << "Varians = " << variance << endl;
