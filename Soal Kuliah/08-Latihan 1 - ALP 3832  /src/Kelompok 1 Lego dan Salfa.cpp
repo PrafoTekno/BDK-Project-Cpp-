@@ -27,7 +27,7 @@ int main () {
     cout << "Halo \"" << initial << "\"! Tahun ini kamu berumur " << umur << " tahun \\^.^/" << endl;
 
     cout << endl;
-
+    
     return 0;
 
 }
