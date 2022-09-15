@@ -13,3 +13,8 @@ Umur user     : 24
 Jadwal vaksin : 12 September 2022
 **************************************
 
+Nama user     : Naruto
+Umur user     : 20
+Jadwal vaksin : 12 September 2022
+**************************************
+
