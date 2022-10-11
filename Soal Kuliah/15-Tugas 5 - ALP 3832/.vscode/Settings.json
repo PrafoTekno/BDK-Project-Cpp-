@@ -4,5 +4,8 @@
     "terminal.integrated.fontSize" : 18,
     "window-zoomLevel" : 1,
     "workbench.colorTheme" : "Noctis Minimus",
-    "workbench.iconTheme" : "vscode-icons"
+    "workbench.iconTheme": "vscode-icons",
+    "files.associations": {
+        "iostream": "cpp"
+    }
 }

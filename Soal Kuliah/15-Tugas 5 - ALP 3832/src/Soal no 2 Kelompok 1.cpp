@@ -1,9 +1,14 @@
 
+/*
+    Punya Kelompok 1 
+    Salfa dan Lego
+*/
+
 #include <iostream>
 
 using namespace std;
 
-double persentase (double status, int n) {
+double persentase (double status, int n) { //biar mudah mencari persentasenya
     return (status/n) * 100;
 }
 
@@ -11,11 +16,22 @@ int main () {
 
     cout << "\t====== Survey Produk ======\n" << endl;
 
+    // Produk 
+
+    cout << "''''''''''''''''''''''''''" << endl;
+    cout << "Nama Produk : Tesla 2.1" << endl;
+    cout << "Besar CC    : 400 km/jam" << endl;
+    cout << "Warna       : Merah" << endl;
+    cout << "''''''''''''''''''''''''''" << endl << endl;
+
     int data_ke = 0;
     char kualitas, lanjut;
 
     //Pengolahan data
+    
     int bagus = 0, tidak_bagus = 0, no_comment = 0;
+
+    // Mensurvey  
 
     while (true) {
 
@@ -50,6 +66,8 @@ int main () {
         }
 
     }
+
+    // Menampilkan data persentase
 
     cout << "\n\n^^^^^^ Persentase Survey ^^^^^^\n" << endl; 
 

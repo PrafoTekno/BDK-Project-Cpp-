@@ -1,4 +1,9 @@
 
+/*
+    Punya Kelompok 1 
+    Salfa dan Lego
+*/
+
 #include <iostream>
 
 using namespace std;
@@ -12,11 +17,22 @@ int main () {
 
     cout << "\t====== Survey Produk ======\n" << endl;
 
+    // Produk 
+
+    cout << "''''''''''''''''''''''''''" << endl;
+    cout << "Nama Produk : Tesla 2.1" << endl;
+    cout << "Besar CC    : 400 km/jam" << endl;
+    cout << "Warna       : Merah" << endl;
+    cout << "''''''''''''''''''''''''''" << endl << endl;
+
     int data_ke = 0;
     char kualitas;
 
     //Pengolahan data
+
     int bagus = 0, tidak_bagus = 0, no_comment = 0;
+
+    // Mensurvey 25 data
 
     while (data_ke < 25) {
 
@@ -45,6 +61,8 @@ int main () {
         }
 
     }
+
+    // Menampilkan persentase data
 
     cout << "\n\n^^^^^^ Persentase Survey ^^^^^^\n" << endl; 
 
