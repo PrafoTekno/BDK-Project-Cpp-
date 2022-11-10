@@ -3,9 +3,6 @@
 
 using namespace std;
 
-double meanRL (int banyak);
-double meanAlgo (int banyak);
-double meanKalk (int banyak);
 void Main ();
 
 int main () {
@@ -18,7 +15,24 @@ int main () {
 
 }
 
+double mean (int banyak) {
 
+    double jumlah = 0;
+    double nilai;
+
+    for (int n = 0; n < banyak; n++) {
+        cin >> nilai;
+        jumlah = jumlah + nilai;
+    }
+
+    cout << endl;
+
+    cout << "Nilai rata-rata nya adalah " << jumlah/banyak << endl;
+
+    return jumlah / banyak;
+}
+
+/*
 double mean_RL (int banyak) {
 
     double jumlah = 0;
@@ -72,6 +86,7 @@ double mean_Kalk (int banyak) {
     return jumlah / banyak;
 
 }
+*/
 
 void Main () {
 
@@ -83,11 +98,11 @@ void Main () {
     cout << endl;
 
     cout << "Masukan " << banyak_nilai << " nilai RL :" << endl;
-    mean_RL (banyak_nilai);
+    mean (banyak_nilai);
     cout << "\nMasukan " << banyak_nilai << " nilai Algo :" << endl;
-    mean_Algo (banyak_nilai);
+    mean (banyak_nilai);
     cout << "\nMasukan " << banyak_nilai << " nilai Kalk :" << endl;
-    mean_Kalk (banyak_nilai);
+    mean (banyak_nilai);
 
     cout << endl;
 
