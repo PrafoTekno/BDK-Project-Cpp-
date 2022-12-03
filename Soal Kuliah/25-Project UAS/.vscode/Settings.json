@@ -6,6 +6,7 @@
     "workbench.colorTheme" : "Noctis Minimus",
     "workbench.iconTheme": "vscode-icons",
     "files.associations": {
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "iosfwd": "cpp"
     }
 }
