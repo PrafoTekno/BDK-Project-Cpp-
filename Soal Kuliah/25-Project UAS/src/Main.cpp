@@ -16,7 +16,7 @@ char bentuk_karakter, menu_game;
 
 void Game_Suit ();
 
-void Karakter (int, int);
+void Karakter (int, int, int);
 
 // Hal lain
 void Kemampuan (int &, int &, int, int);
@@ -42,7 +42,7 @@ int main () {
 
     cout << endl;
 
-    cout << "\t=-=-=-=-= YouVon =-=-=-=-=\n" << endl;
+    cout << "\t=-=-=-=-= RPS SL =-=-=-=-=\n" << endl;
 
     srand (time (0));
 
@@ -155,7 +155,7 @@ int atribut;
     int val_armor [35] = {};
     int kode[10] = {};
 
-    int pilih_pack = 1; // Pengambilan pack
+    int pilih_gear = 1; // Pengambilan gear
     int menang = 0; // Berapa kali sudah menang
 
 // Sistem Gacha
@@ -189,20 +189,17 @@ void Gacha (int y, int x) {
 
     x_zonk = 1 + (rand () % 9);
     y_zonk = 1 + (rand () % 9);
-    
-    x_zonk = 2;
-    y_zonk = 2;
 
     if (y == y_zonk && x == x_zonk) {
 
         cout << "Kotak (" << y << ", " << x << ")" << endl << endl;
 
-        val_senjata[pilih_pack-1] = -30 + (rand () % -10);
-        val_armor[pilih_pack-1] = -30 + (rand () % -10);
+        val_senjata[pilih_gear-1] = -30 + (rand () % -10);
+        val_armor[pilih_gear-1] = -30 + (rand () % -10);
 
         cout << "KAMU DAPAT ZONK HAHAHAHA" << endl << endl;
-        cout << "Attack : " << val_senjata[pilih_pack-1] << endl;
-        cout << "Deffence : " << val_armor[pilih_pack-1] << endl << endl;
+        cout << "Attack : " << val_senjata[pilih_gear-1] << endl;
+        cout << "Deffence : " << val_armor[pilih_gear-1] << endl << endl;
 
     }
 
@@ -235,14 +232,14 @@ void Gacha (int y, int x) {
                     
                     tampung = val_senjata[i];
                     val_senjata[i] = val_senjata[j];
-                    val_senjata[j] = val_senjata[i];    
+                    val_senjata[j] = tampung;    
                 
                 }
                 if (val_armor[i] > val_armor[j]) {
                 
                     tampung = val_armor[i];
                     val_armor[i] = val_armor[j];
-                    val_armor[j] = val_armor[i];
+                    val_armor[j] = tampung;
                 
                 }
             }
@@ -272,21 +269,21 @@ void Gacha (int y, int x) {
 
         }
 
-        cout << "Pilih pack yang mana (dalam LS) : ";
-        cin >> pilih_pack;
+        cout << "Pilih gear yang mana (dalam LS) : ";
+        cin >> pilih_gear;
 
-        Duid (duid, -pilih_pack);
+        Duid (duid, -pilih_gear);
 
         cout << "\n----- Selamat Kamu Dapat -----" << endl;
-        cout << senjata[kode[pilih_pack-1]] << " : +" << val_senjata[pilih_pack-1] << " attack" << endl;
-        cout << armor[kode[pilih_pack-1]] << " : +" << val_armor[pilih_pack-1] << " deffence" << endl;
+        cout << senjata[kode[pilih_gear-1]] << " : +" << val_senjata[pilih_gear-1] << " attack" << endl;
+        cout << armor[kode[pilih_gear-1]] << " : +" << val_armor[pilih_gear-1] << " deffence" << endl;
         cout << "--------------------------------\n\n" << endl;
 
         atribut = 1;
 
     }
 
-    Kemampuan (attack, deffence, val_senjata[pilih_pack-1], val_armor[pilih_pack-1]);
+    Kemampuan (attack, deffence, val_senjata[pilih_gear-1], val_armor[pilih_gear-1]);
 
 }
 
@@ -311,13 +308,13 @@ void Profil () {
         title = "Glory";
     }
 
-    Karakter (0, 1);
+    Karakter (6, 1, 1);
 
     if (atribut == 1) {
 
         cout << "\n+_+_+_+ Atribut yang dimiliki +_+_+_+\n" << endl;
-        cout << senjata[kode[pilih_pack-1]] << " : +" << val_senjata[pilih_pack-1] << " attack" << endl;
-        cout << armor[kode[pilih_pack-1]] << " : +" << val_armor[pilih_pack-1] << " deffence" << endl;
+        cout << senjata[kode[pilih_gear-1]] << " : +" << val_senjata[pilih_gear-1] << " attack" << endl;
+        cout << armor[kode[pilih_gear-1]] << " : +" << val_armor[pilih_gear-1] << " deffence" << endl;
 
     }
 
@@ -333,11 +330,13 @@ void Segitiga (int x, int status) {
 
     if (status == 1) {
 
-        for (int i = 0; i < 4; i++) {
+        Kemampuan (attack, deffence, 0,0);
+
+        for (int i = 0; i < 5; i++) {
 
             cout << spasi;
         
-            for (int j = 4; j > i; j--) {
+            for (int j = 5; j > i; j--) {
                 cout << " ";
             }
             for (int j = 0; j < i; j++) {
@@ -353,7 +352,7 @@ void Segitiga (int x, int status) {
             else if (i < 3) {
                 cout << " \t\t+ Deffence : " << deffence;
             }
-            else {
+            else if (i < 4) {
                 cout << "\t\t+ Title : " << title;
             }
 
@@ -365,11 +364,11 @@ void Segitiga (int x, int status) {
 
     else {
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
 
             cout << spasi;
         
-            for (int j = 4; j > i; j--) {
+            for (int j = 5; j > i; j--) {
                 cout << " ";
             }
             for (int j = 0; j < i; j++) {
@@ -390,6 +389,8 @@ void Ketupat (int x, int status) {
     string spasi (x, ' ');
 
     if (status == 1) {
+
+        Kemampuan (attack, deffence, 0,0);
 
         for (int i = 0; i < 6; i++) {
 
@@ -466,6 +467,8 @@ void Kotak (int x, int status) {
 
     if (status == 1) {
 
+        Kemampuan (attack, deffence, 0,0);
+
         for (int i = 0; i < 4; i++) {
 
             cout << spasi;
@@ -514,6 +517,8 @@ void Trapesium (int x, int status) {
     string spasi (x, ' ');
 
     if (status == 1) {
+
+        Kemampuan (attack, deffence, 0,0);
 
         for (int i = 0; i < 4; i++) {
 
@@ -566,70 +571,68 @@ void Trapesium (int x, int status) {
 
 }
 
-void Karakter (int x, int status) {
+void Karakter (int x, int status, int siapa) {
+// x = untuk geser (horizontal), status = ada atribut atau tidak, siapa = 1 untuk user, 0 untuk AI
 
-    if (status == 1) {
-        string spasi (36/nama_karakter.size (), ' ');
+    if (siapa == 1) { // Bentuk User
+
+        string spasi (x, ' ');
         cout << spasi << nama_karakter << endl;
-    }
-    else {
-        string spasi (3, ' ');
-        cout << spasi << nama_karakter << endl;
-    }
+        
+        switch (bentuk_karakter) {
 
-    switch (bentuk_karakter) {
+            case 'a':
+            Segitiga (x, status);
+            break;
 
-        case 'a':
-        Segitiga (6 + x, status);
-        break;
-
-        case 'b':
-        Ketupat (6 + x, status);
-        break;
+            case 'b':
+            Ketupat (x, status);
+            break;
     
-        case 'c':
-        cout << endl;
-        Kotak (6 + x, status);
-        break;
+            case 'c':
+            cout << endl;
+            Kotak (x, status);
+            break;
 
-        case 'd':
-        cout << endl;
-        Trapesium (6 + x, status);
-        break;
+            case 'd':
+            cout << endl;
+            Trapesium (x, status);
+            break;
 
-        default:
-        cout << "Pesan error : Input tidak sesuai\n" << endl;
-        break;
+            default:
+            cout << "Pesan error : Input tidak sesuai\n" << endl;
+            break;
     
+         }
     }
 
-}
+    else {   // Bentuk AI
 
-void AI (int acak) {
+        cout << "  YP-0" << 0 + (rand () % 99) << endl;
 
-    cout << "  YP-0" << 0 + (rand () % 99) << endl;
+        switch (1 + (rand () % 4)) {
 
-    switch (acak) {
+            case 1:
+            Segitiga (x, status);
+            break;
 
-        case 1 :
-        Ketupat (0, 0);
-        break;
+            case 2:
+            Ketupat (x, status);
+            break;
+    
+            case 3:
+            cout << endl;
+            Kotak (x, status);
+            break;
 
-        case 2 :
-        cout << endl;
-        Trapesium (0, 0);
-        break;
-
-        case 3 : 
-        cout << endl;
-        Kotak (3, 0);
-        break;
-
-        case 4 :
-        Segitiga (0, 0);
-        break; 
-
+            case 4:
+            cout << endl;
+            Trapesium (x, status);
+            break;
+    
+         }
     }
+
 
 }
 
@@ -672,13 +675,12 @@ void Game_Suit () {
     cout << "Gajah = 3" << endl << endl;
     
     cout << "^^^^^^^^^^^^^^^^^^^^^^^" << endl;
-    Karakter (-5, 0);
+    Karakter (3, 0, 1);
 
     cout << "\nAttack : " << attack << endl;
     cout << "Deffence : " << deffence << endl << endl;
 
-    AI (1 + (rand () % 4));
-
+    Karakter (3, 0, 0);
     cout << "\nAttack : " << atk_AI << endl;
     cout << "Deffence : " << def_AI << endl;
 
@@ -724,7 +726,7 @@ void Game_Suit () {
         cout << "\nKamu kalah\n" << endl;
     }
 
-    else if (nyawa_user > 0){
+    else {
 
         int tambah_duid = 2 + (rand () % 25); 
 
