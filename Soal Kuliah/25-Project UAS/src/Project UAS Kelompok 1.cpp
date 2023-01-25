@@ -1,6 +1,8 @@
 
 #include <iostream>
 #include <string>
+#include <stdlib.h>
+#include <fstream>
 
 using namespace std;
 
@@ -42,10 +44,12 @@ int main () {
 
     cout << endl;
 
+    system ("clear");
+
     cout << "\t=-=-=-=-= RPS SL =-=-=-=-=\n" << endl;
 
     srand (time (0));
-
+    
     cout << "Masukan nama karakter mu : ";
     getline (cin, nama_karakter);
 
@@ -80,6 +84,8 @@ int main () {
             Game_Suit ();
         }
         else if (menu_game == '$') {
+
+            system ("clear");
             
             cout << "\n     ^^^^^^^^^^^^^^^^^^^ Gacha ^^^^^^^^^^^^^^^^^^^" << endl;
             cout << "\n1 kali gacha seharga 50 LS " << endl;
@@ -194,8 +200,8 @@ void Gacha (int y, int x) {
 
         cout << "Kotak (" << y << ", " << x << ")" << endl << endl;
 
-        val_senjata[pilih_gear-1] = -30 + (rand () % -10);
-        val_armor[pilih_gear-1] = -30 + (rand () % -10);
+        val_senjata[pilih_gear-1] = -400 + (rand () % -10);
+        val_armor[pilih_gear-1] = -400 + (rand () % -10);
 
         cout << "KAMU DAPAT ZONK HAHAHAHA" << endl << endl;
         cout << "Attack : " << val_senjata[pilih_gear-1] << endl;
@@ -290,6 +296,8 @@ void Gacha (int y, int x) {
 // Profil user
 
 void Profil () {
+
+    system ("clear");
 
     cout << "\n*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^" << endl << endl;
 
@@ -659,6 +667,8 @@ int Nyerang (int atk_ku, int def_musuh) {
 // Mekanisme gamenya 
 
 void Game_Suit () {
+
+    system ("clear");
 
     int sign_AI, nyawa_AI = 1200;
     int sign_user, nyawa_user = 1200;
