@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string tipe_film;
+string tipe_film; //Variable
 
 void Menonton (double uang) {
 
